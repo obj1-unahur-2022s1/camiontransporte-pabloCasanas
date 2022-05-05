@@ -1,3 +1,33 @@
-import camion.*
-import cosas.*
+import camion2.*
+import cosas2.*
+
+describe "test camion"{
+	test "cargado con bumblebee como robot, 
+		  arena con 150 kg, bateria antiaerea con misiles
+		  y embalaje de seguridad con 80 ladrillos dentro "{
+		  	camion.cargar(bumblebee)
+		  	camion.cargar(arena)
+		  	camion.cargar(bateriaAntiaerea)
+		  	camion.cargar(embalajeSeguridad)
+		  	bumblebee.cambiarDeModo()
+		  	arena.peso(150)
+		  	paqueteLadrillos.cantidadLadrillos(80)
+		    embalajeSeguridad.envolver(paqueteLadrillos)
+		  	
+		  	assert.equals(4, camion.totalBultos())
+		  	assert.that(camion.todoPesoPar())
+		  	assert.that(camion.hayAlgunoQuePesa(800))
+		  	assert.equals(bumblebee, camion.elDeNivel(30))
+		  	assert.equals(2410, camion.pesoTotal())
+		  	assert.notThat(camion.exedidoDePeso())
+		  	assert.equals([bateriaAntiaerea], camion.objetosQueSuperanPeligrosidad(80))
+		  	assert.equals([bateriaAntiaerea], camion.objetosMasPeligrososQue(bumblebee))
+		  	assert.that(camion.puedeCircularEnRuta(1000))
+		  	assert.that(camion.tieneAlgoQuePesaEntre(500, 1000))
+		  	assert.equals(bumblebee, camion.cosaMasPesada())
+		  	assert.equals([800, 150, 300, 160], camion.pesos())
+		  	
+		  	
+		  }
+}
 
