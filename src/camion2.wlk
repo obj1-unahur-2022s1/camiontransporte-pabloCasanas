@@ -4,8 +4,11 @@ object camion {
 	const property pesoTara = 1000
 	var carga = []
 	
-	method totalBultos() = carga.size()
-	method cargar(cosa){carga.add(cosa)}
+	method totalBultos() = carga.sum({e => e.bultos()})
+	method cargar(cosa){
+		carga.add(cosa)
+		cosa.consecuenciaDeCarga()
+	}
 	method descargar(cosa){carga.remove(cosa)}
 	method todoPesoPar() = carga.all({ e => e.peso().even() })
 	method hayAlgunoQuePesa(peso) = carga.any({ e => e.peso() == peso })
@@ -16,9 +19,7 @@ object camion {
 	method objetosMasPeligrososQue(cosa) = carga.filter({ e => e.nivelPeligrosidad() > cosa.nivelPeligrosidad()})
 	method puedeCircularEnRuta(nivelMaximoPeligrosidad) = !self.exedidoDePeso() and carga.all({e => e.nivelPeligrosidad() < nivelMaximoPeligrosidad })
 	method tieneAlgoQuePesaEntre(min, max) = carga.any({ e => e.peso().between(min, max)})
-	method cosaMasPesada() = carga.find({e => e.peso() == self.elMayorPeso()})
+	method cosaMasPesada() = carga.max({ e => e.peso()})
 	method pesos() = carga.map({ e => e.peso()})
-	//metodo auxiliar para calcular el objeto de mayor peso
-	method elMayorPeso() = self.pesos().max()
 	
 }

@@ -1,0 +1,16 @@
+import camion2.*
+import cosas2.*
+test "test totalBultos y consecuenciaDeCarga" {
+	camion.cargar(bumblebee)
+	camion.cargar(arena)
+	camion.cargar(bateriaAntiaerea)
+ 	camion.cargar(embalajeSeguridad)
+	arena.peso(150)
+	paqueteLadrillos.cantidadLadrillos(80)
+	embalajeSeguridad.envolver(paqueteLadrillos)
+	contenedor.ponerAdentro(arena)
+	camion.cargar(contenedor)
+
+	assert.equals(true)
+
+}
