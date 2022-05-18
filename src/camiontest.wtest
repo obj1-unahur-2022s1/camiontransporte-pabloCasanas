@@ -1,3 +1,7 @@
+/*
+ * Los test no corren
+ */
+
 import camion2.*
 import cosas2.*
 
@@ -14,7 +18,7 @@ describe "test camion"{
 		  	paqueteLadrillos.cantidadLadrillos(80)
 		    embalajeSeguridad.envolver(paqueteLadrillos)
 		  	
-		  	assert.equals(4, camion.totalBultos())
+		  	assert.equals(7, camion.totalBultos())
 		  	assert.that(camion.todoPesoPar())
 		  	assert.that(camion.hayAlgunoQuePesa(800))
 		  	assert.equals(bumblebee, camion.elDeNivel(30))

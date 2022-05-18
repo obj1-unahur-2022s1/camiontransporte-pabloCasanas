@@ -1,3 +1,4 @@
+/*Esta todo dentro de cosas2 */
 object knightRider {
 
 }
