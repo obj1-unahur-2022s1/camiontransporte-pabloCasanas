@@ -1,3 +1,8 @@
+/*
+ * Ojo: embalajeSeguridad era solo para una cosa. no para una coleccion
+ * Quizás: nivelPeligrosidad() del Contendor es mejora hacerlos con el max sin usar un map auxiliar
+ */
+
 object knightRider {
 	const property peso = 500
 	const property nivelPeligrosidad = 10
@@ -30,7 +35,7 @@ object paqueteLadrillos{
 
 
 object arena {
-	var property peso
+	var property peso=0
 	const property nivelPeligrosidad = 1
 	const property bultos = 1
 	
